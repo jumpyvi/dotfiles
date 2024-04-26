@@ -1,0 +1,56 @@
+add_newline = false
+format = "$shell$nix_shell$username$hostname$git_branch$git_commit$git_state$git_status$directory \n $character"
+
+[character]
+error_symbol = "[\\$](bright-red bold)"
+success_symbol = "[>_](bright-green bold)"
+
+[directory]
+read_only = " 󰉐"
+truncation_length = 0
+
+[dotnet]
+heuristic = true
+style = "green"
+symbol = ""
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+only_attached = true
+style = "bright-yellow bold"
+symbol = " "
+
+[git_commit]
+format = "[$hash]($style) "
+only_detached = true
+style = "bright-yellow bold"
+
+[git_state]
+style = "bright-purple bold"
+
+[git_status]
+style = "bright-green bold"
+
+[hostname]
+ssh_only = false
+style = "bright-green bold"
+
+[nix_shell]
+format = "[$symbol$name]($style) "
+style = "bright-purple bold"
+symbol = ""
+
+[nodejs]
+format = "via [󰎙 $version](bold green) "
+
+[shell]
+bash_indicator = "[󱆃](bright-white) "
+disabled = false
+fish_indicator = "󰻳"
+format = "$indicator"
+
+[username]
+disabled = false
+show_always = true
+style_root = "bright-red bold"
+style_user = "bright-white bold"
