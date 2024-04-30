@@ -24,8 +24,7 @@ alias -- 'clr'='clear'
 export EDITOR="nvim";
 export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/Cellar/dotnet/8.0.4/libexec";
 export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
-export SSH_ASKPASS=/usr/bin/ksshaskpass
-export SSH_ASKPASS_REQUIRE=prefer
+#export SSH_ASKPASS=/usr/bin/ksshaskpass
+#export SSH_ASKPASS_REQUIRE=prefer
 
 eval $(thefuck --alias f)
-
