@@ -1,5 +1,4 @@
 if status is-interactive
- eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 alias ls="eza --color=always --git --icons=always"
@@ -14,5 +13,3 @@ export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
 
 
-
-starship init fish | source

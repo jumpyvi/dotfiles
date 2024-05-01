@@ -1,4 +1,5 @@
-source /home/linuxbrew/.linuxbrew/share/antigen/antigen.zsh
+source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+source /home/jumpyvi/.local/other-apps/antigen.zsh
 autoload -Uz compinit
 compinit
 
@@ -21,10 +22,13 @@ fi
 # Aliases
 alias -- 'clr'='clear'
 
+#TOOLS PATH
 export EDITOR="nvim";
-export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/Cellar/dotnet/8.0.4/libexec";
-export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
-#export SSH_ASKPASS=/usr/bin/ksshaskpass
-#export SSH_ASKPASS_REQUIRE=prefer
+export CHROME_EXECUTABLE=/home/jumpyvi/.local/bin/thorium-browser
 
-eval $(thefuck --alias f)
+#DOTNET
+export DOTNET_ROOT="/home/jumpyvi/.nix-profile";
+
+#SSH
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer

@@ -284,6 +284,9 @@ toggle do not disturb=none,,Toggle do not disturb
 [services][one.ablaze.floorp.desktop]
 _launch=Meta+F
 
+[services][org.gnome.Ptyxis.desktop]
+new-window=none
+
 [services][org.kde.konsole.desktop]
 _launch=Meta+D
 
