@@ -28,6 +28,7 @@ export CHROME_EXECUTABLE=/home/jumpyvi/.local/bin/thorium-browser
 
 #DOTNET
 export DOTNET_ROOT="/home/jumpyvi/.nix-profile";
+export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
 
 #SSH
 export SSH_ASKPASS=/usr/bin/ksshaskpass
