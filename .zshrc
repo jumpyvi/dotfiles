@@ -22,13 +22,18 @@ fi
 # Aliases
 alias -- 'clr'='clear'
 
+
+eval "$(direnv hook zsh)"
+
+
 #TOOLS PATH
 export EDITOR="nvim";
+export PATH="$PATH:/home/jumpyvi/.local/bin"
 export CHROME_EXECUTABLE=/home/jumpyvi/.local/bin/thorium-browser
 
 #DOTNET
-export DOTNET_ROOT="/home/jumpyvi/.nix-profile";
-export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
+#export DOTNET_ROOT="/home/jumpyvi/.nix-profile";
+#export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
 
 #SSH
 export SSH_ASKPASS=/usr/bin/ksshaskpass

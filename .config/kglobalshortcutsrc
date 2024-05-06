@@ -281,7 +281,7 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
-[services][one.ablaze.floorp.desktop]
+[services][com.vivaldi.Vivaldi.desktop]
 _launch=Meta+F
 
 [services][org.gnome.Ptyxis.desktop]
@@ -291,4 +291,11 @@ new-window=none
 _launch=Meta+D
 
 [services][org.kde.spectacle.desktop]
+ActiveWindowScreenShot=none
+FullScreenScreenShot=none
+RecordRegion=none
+RecordScreen=none
 RecordWindow=none
+RectangularRegionScreenShot=none
+WindowUnderCursorScreenShot=none
+_launch=none
