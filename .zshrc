@@ -21,7 +21,8 @@ fi
 
 # Aliases
 alias -- 'clr'='clear'
-
+alias -- 'newbox'='devbox init && devbox generate direnv --force && direnv allow'
+alias -- 'nixedit'='$EDITOR ~/.config/home-manager/home.nix'
 
 eval "$(direnv hook zsh)"
 
@@ -36,5 +37,5 @@ export CHROME_EXECUTABLE=/home/jumpyvi/.local/bin/thorium-browser
 #export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
 
 #SSH
-export SSH_ASKPASS=/usr/bin/ksshaskpass
-export SSH_ASKPASS_REQUIRE=prefer
+#export SSH_ASKPASS=/usr/bin/ksshaskpass
+#export SSH_ASKPASS_REQUIRE=prefer

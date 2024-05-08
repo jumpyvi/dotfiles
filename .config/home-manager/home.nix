@@ -17,6 +17,11 @@ in
     pkgs.starship
     pkgs.eza
     pkgs.antigen
+    pkgs.tilix
+
+
+    pkgs.waybar
+    pkgs.wofi
 
     pkgs.devbox
     pkgs.direnv
