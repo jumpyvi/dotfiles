@@ -1,19 +1,47 @@
-source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-source /home/jumpyvi/.local/other-apps/antigen.zsh
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
+source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
+
+
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Add in snippets
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::command-not-found
+
 autoload -Uz compinit
 compinit
+zinit cdreplay -q
 
-antigen use oh-my-zsh
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
-antigen bundle git
-antigen bundle sudo
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-antigen apply
 
-alias ls="eza --color=always --git --icons=always"
-alias dir="eza --color=always --long --git"
+
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(starship init zsh)"
@@ -21,10 +49,24 @@ fi
 
 # Aliases
 alias -- 'clr'='clear'
-alias -- 'newbox'='devbox init && devbox generate direnv --force && direnv allow'
-alias -- 'nixedit'='$EDITOR ~/.config/home-manager/home.nix'
 
-eval "$(direnv hook zsh)"
+
+function ls() {
+  if command -v eza >/dev/null 2>&1; then
+    eza --color=always --git --icons=always "$@"
+  else
+    command ls "$@"
+  fi
+}
+
+function dir() {
+  if command -v eza >/dev/null 2>&1; then
+    eza --color=always --long --git --icons=always "$@"
+  else
+    command dir "$@"
+  fi
+}
+
 
 
 #TOOLS PATH
@@ -33,9 +75,14 @@ export PATH="$PATH:/home/jumpyvi/.local/bin"
 export CHROME_EXECUTABLE=/home/jumpyvi/.local/bin/thorium-browser
 
 #DOTNET
-#export DOTNET_ROOT="/home/jumpyvi/.nix-profile";
 #export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
+
+#Flutter
+export PATH="$PATH:/usr/bin/flutter/bin"
 
 #SSH
 #export SSH_ASKPASS=/usr/bin/ksshaskpass
 #export SSH_ASKPASS_REQUIRE=prefer
+
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
