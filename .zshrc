@@ -67,10 +67,24 @@ function dir() {
   fi
 }
 
+function v() {
+  if command -v lvim >/dev/null 2>&1; then
+    command lvim "$@"
+  elif command -v nvim >/dev/null 2>&1 ; then
+    command nvim "$@"
+  elif command -v vim >/dev/null 2>&1 ; then
+    command vim "$@"
+  elif command -v vi >/dev/null 2>&1 ; then
+    command vi "$@"
+  else
+    command nano "$@"
+  fi
+}
+
 
 
 #TOOLS PATH
-export EDITOR="nvim";
+export EDITOR="lvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
 export CHROME_EXECUTABLE=/home/jumpyvi/.local/bin/thorium-browser
 
