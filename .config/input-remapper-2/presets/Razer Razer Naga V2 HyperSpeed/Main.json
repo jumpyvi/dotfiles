@@ -2,51 +2,13 @@
     {
         "input_combination": [
             {
-                "type": 2,
-                "code": 6,
-                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
-                "analog_threshold": -1
-            },
-            {
-                "type": 2,
-                "code": 12,
-                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
-                "analog_threshold": -1
-            }
-        ],
-        "target_uinput": "keyboard",
-        "output_symbol": "Alt_L + KEY_LEFT",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
-                "type": 2,
-                "code": 6,
-                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
-                "analog_threshold": 1
-            },
-            {
-                "type": 2,
-                "code": 12,
-                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
-                "analog_threshold": 1
-            }
-        ],
-        "target_uinput": "keyboard",
-        "output_symbol": "Alt_L + KEY_RIGHT",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
                 "type": 1,
                 "code": 2,
                 "origin_hash": "04c22fed0a139a48a5920ef29e84cc76"
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "Super_L + space",
+        "output_symbol": "Super_L",
         "mapping_type": "key_macro"
     },
     {
@@ -58,7 +20,7 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "Super_L + q",
+        "output_symbol": "Super_L + space",
         "mapping_type": "key_macro"
     },
     {
@@ -70,7 +32,19 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "Super_L",
+        "output_symbol": "Alt_L + KEY_RIGHT",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 7,
+                "origin_hash": "04c22fed0a139a48a5920ef29e84cc76"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Alt_L + KEY_LEFT",
         "mapping_type": "key_macro"
     },
     {
@@ -94,18 +68,6 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "Super_L + e",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
-                "type": 1,
-                "code": 7,
-                "origin_hash": "04c22fed0a139a48a5920ef29e84cc76"
-            }
-        ],
-        "target_uinput": "keyboard",
         "output_symbol": "Super_L + d",
         "mapping_type": "key_macro"
     },
@@ -118,7 +80,7 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "XF86AudioLowerVolume",
+        "output_symbol": "Super_L + 3",
         "mapping_type": "key_macro"
     },
     {
@@ -130,7 +92,7 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "XF86AudioRaiseVolume",
+        "output_symbol": "Super_L + 2",
         "mapping_type": "key_macro"
     },
     {
@@ -142,19 +104,7 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "XF86AudioPause",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
-                "type": 1,
-                "code": 11,
-                "origin_hash": "04c22fed0a139a48a5920ef29e84cc76"
-            }
-        ],
-        "target_uinput": "keyboard",
-        "output_symbol": "KEY_LEFTCTRL + Super_L + Left",
+        "output_symbol": "Super_L + 1",
         "mapping_type": "key_macro"
     },
     {
@@ -166,7 +116,47 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "KEY_LEFTCTRL + Super_L + Right",
+        "output_symbol": "",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 2,
+                "code": 6,
+                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
+                "analog_threshold": -1
+            },
+            {
+                "type": 2,
+                "code": 12,
+                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
+                "analog_threshold": -1
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_LEFTCTRL + BackSpace",
+        "name": "Wheel Left",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 2,
+                "code": 6,
+                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
+                "analog_threshold": 1
+            },
+            {
+                "type": 2,
+                "code": 12,
+                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
+                "analog_threshold": 1
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "XF86AudioNext",
+        "name": "Wheel Right",
         "mapping_type": "key_macro"
     }
 ]
