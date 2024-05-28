@@ -2,7 +2,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+#  exec tmux
 fi
 
 source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
@@ -102,3 +102,4 @@ export PATH="$PATH:/usr/bin/flutter/bin"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(direnv hook zsh)"
