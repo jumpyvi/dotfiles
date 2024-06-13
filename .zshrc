@@ -1,8 +1,9 @@
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+xhost +local: > /dev/null 2>&1
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#  exec tmux
+  exec tmux
 fi
 
 source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
@@ -86,15 +87,8 @@ function v() {
 
 
 #TOOLS PATH
-export EDITOR="lvim";
+export EDITOR="nvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
-export CHROME_EXECUTABLE=/home/jumpyvi/.local/bin/thorium-browser
-
-#DOTNET
-#export PATH="$PATH:/home/jumpyvi/.dotnet/tools";
-
-#Flutter
-export PATH="$PATH:/usr/bin/flutter/bin"
 
 #SSH
 #export SSH_ASKPASS=/usr/bin/ksshaskpass
@@ -102,4 +96,3 @@ export PATH="$PATH:/usr/bin/flutter/bin"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(direnv hook zsh)"
