@@ -1,13 +1,13 @@
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/programs}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 xhost +local: > /dev/null 2>&1
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
-
-source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
-
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -91,8 +91,7 @@ export EDITOR="nvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
 
 #SSH
-#export SSH_ASKPASS=/usr/bin/ksshaskpass
-#export SSH_ASKPASS_REQUIRE=prefer
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer
 
-eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
