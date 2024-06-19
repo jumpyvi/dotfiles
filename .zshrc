@@ -5,9 +5,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 xhost +local: > /dev/null 2>&1
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" != screen && "$TERM" != tmux ]] && [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
   exec tmux
 fi
+
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -71,9 +72,7 @@ function dir() {
 }
 
 function v() {
-  if command -v lvim >/dev/null 2>&1; then
-    command lvim "$@"
-  elif command -v nvim >/dev/null 2>&1 ; then
+  if command -v nvim >/dev/null 2>&1 ; then
     command nvim "$@"
   elif command -v vim >/dev/null 2>&1 ; then
     command vim "$@"
