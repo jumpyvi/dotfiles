@@ -1,14 +1,8 @@
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/programs}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
 
 xhost +local: > /dev/null 2>&1
-
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" != screen && "$TERM" != tmux ]] && [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
-  exec tmux
-fi
-
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -54,6 +48,9 @@ fi
 # Aliases
 alias -- 'clr'='clear'
 
+#Fast flatpak
+alias -- 'gwen'='flatpak run org.kde.gwenview'
+
 
 function ls() {
   if command -v eza >/dev/null 2>&1; then
@@ -71,8 +68,8 @@ function dir() {
   fi
 }
 
-function v() {
-  if command -v nvim >/dev/null 2>&1 ; then
+function em() {
+  if command -v nvim>/dev/null 2>&1 ; then
     command nvim "$@"
   elif command -v vim >/dev/null 2>&1 ; then
     command vim "$@"
@@ -84,7 +81,6 @@ function v() {
 }
 
 
-
 #TOOLS PATH
 export EDITOR="nvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
@@ -93,4 +89,6 @@ export PATH="$PATH:/home/jumpyvi/.local/bin"
 export SSH_ASKPASS=/usr/bin/ksshaskpass
 export SSH_ASKPASS_REQUIRE=prefer
 
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(zellij setup --generate-auto-start zsh)"
