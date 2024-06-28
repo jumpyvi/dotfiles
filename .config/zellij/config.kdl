@@ -264,10 +264,10 @@ plugins {
 //
    themes {
      main {
-         fg 248 248 242
+         fg 23 23 23
          bg 40 42 54
          red 255 85 85
-         green 80 250 123
+         green 50 102 131
          yellow 241 250 140
          blue 98 114 164
          magenta 255 121 198
@@ -279,8 +279,6 @@ plugins {
 }
 
 // Choose the theme that is specified in the themes section.
-// Default: default
-//
 theme "main"
 
 // The name of the default layout to load on startup
@@ -288,19 +286,9 @@ theme "main"
 //
 default_layout "compact"
 
-// Choose the mode that zellij uses when starting up.
-// Default: normal
-//
 // default_mode "locked"
 
-// Toggle enabling the mouse mode.
-// On certain configurations, or terminals this could
-// potentially interfere with copying text.
-// Options:
-//   - true (default)
-//   - false
-//
-// mouse_mode false
+mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
@@ -310,33 +298,19 @@ default_layout "compact"
 //
 // scroll_buffer_size 10000
 
-// Provide a command to execute when copying text. The text will be piped to
-// the stdin of the program to perform the copy. This can be used with
-// terminal emulators which do not support the OSC 52 ANSI control sequence
-// that will be used by default if this option is not set.
-// Examples:
-//
-// copy_command "xclip -selection clipboard" // x11
 copy_command "wl-copy"                    // wayland
-// copy_command "pbcopy"                     // osx
 
-// Choose the destination for copied text
-// Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
-// Does not apply when using copy_command.
-// Options:
-//   - system (default)
-//   - primary
-//
-// copy_clipboard "primary"
+// copy_on_select true
 
-// Enable or disable automatic copy (and clear) of selection when releasing mouse
-// Default: true
-//
-// copy_on_select false
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
 
-// Path to the default editor to use to edit pane scrollbuffer
+
+
 // Default: $EDITOR or $VISUAL
-//
 // scrollback_editor "/usr/bin/vim"
 
 // When attaching to an existing session with other users,
@@ -345,23 +319,3 @@ copy_command "wl-copy"                    // wayland
 // Default: false
 //
 // mirror_session true
-
-// The folder in which Zellij will look for layouts
-//
-// layout_dir "/path/to/my/layout_dir"
-
-// The folder in which Zellij will look for themes
-//
-// theme_dir "/path/to/my/theme_dir"
-
-// Enable or disable the rendering of styled and colored underlines (undercurl).
-// May need to be disabled for certain unsupported terminals
-// Default: true
-//
-// styled_underlines false
-
-// Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
-// metadata info on this session)
-// Default: false
-//
-// disable_session_metadata true

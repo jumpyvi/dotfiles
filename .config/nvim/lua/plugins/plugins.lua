@@ -1,30 +1,38 @@
-local vim = vim
-local Plug = vim.fn['plug#']
+-- Install lazy.nvim if not already installed
+local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazy_path) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazy_path,
+  })
+end
+vim.opt.rtp:prepend(lazy_path)
 
-vim.call('plug#begin')
+-- Plugin setup using lazy.nvim
+require('lazy').setup({
+  { 'neoclide/coc.nvim', branch = 'release' },
+  'williamboman/mason.nvim',
+  'mhartington/formatter.nvim',
+  'nvim-lua/plenary.nvim',
+  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+  'nvim-tree/nvim-web-devicons',
+  'nvim-telescope/telescope.nvim',
+  'esensar/nvim-dev-container',
+  'akinsho/bufferline.nvim',
+  'nvim-lualine/lualine.nvim',
+  'nvim-tree/nvim-tree.lua',
+})
 
-Plug('neoclide/coc.nvim', { ['branch'] = 'release' })
-Plug 'williamboman/mason.nvim'
-
-Plug 'mhartington/formatter.nvim'
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-telescope/telescope.nvim'
-
-Plug 'esensar/nvim-dev-container'
-
-Plug 'akinsho/bufferline.nvim'
-
-Plug 'nvim-lualine/lualine.nvim'
-
-
-vim.call('plug#end')
-
+-- Set options
 vim.opt.termguicolors = true
 
+-- Require and setup configurations
 require("mason").setup()
 require("devcontainer").setup{}
 require("bufferline").setup{}
 require("config.lualine")
+require("config.nvim-tree")

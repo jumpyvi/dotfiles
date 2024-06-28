@@ -68,7 +68,7 @@ function dir() {
   fi
 }
 
-function em() {
+function vi() {
   if command -v nvim>/dev/null 2>&1 ; then
     command nvim "$@"
   elif command -v vim >/dev/null 2>&1 ; then

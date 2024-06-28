@@ -9,5 +9,3 @@
 [credential]
 	helper = "!f() { /var/home/jumpyvi/.vscode-server/bin/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/node /tmp/vscode-remote-containers-ef5d39ca-49d8-4bd4-9a4e-f8f34f2ea370.js git-credential-helper $*; }; f"
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
