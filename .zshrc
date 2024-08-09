@@ -1,7 +1,5 @@
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/programs}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
 
 xhost +local: > /dev/null 2>&1
 
@@ -43,7 +41,8 @@ bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
 
 if [[ $TERM != "dumb" ]]; then
-  eval "$(starship init zsh)"
+#  eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/prompt.toml)"
 fi
 
 # Aliases
