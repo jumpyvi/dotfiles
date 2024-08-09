@@ -41,8 +41,8 @@ bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
 
 if [[ $TERM != "dumb" ]]; then
-#  eval "$(starship init zsh)"
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/prompt.toml)"
+  eval "$(starship init zsh)"
+#eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/prompt.toml)"
 fi
 
 # Aliases
