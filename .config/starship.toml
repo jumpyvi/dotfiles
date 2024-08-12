@@ -1,5 +1,5 @@
 add_newline = false
-format = "$nix_shell$username$hostname$git_branch$git_commit$git_state$git_status$directory \n $character"
+format = "$username$hostname$git_branch$git_commit$git_state$git_status$directory \n $character"
 
 [character]
 error_symbol = "[\\$](bright-red bold)"
@@ -8,6 +8,7 @@ success_symbol = "[>_](bright-green bold)"
 [directory]
 read_only = " 󰉐"
 truncation_length = 0
+format = '[$path]($style)'
 
 [dotnet]
 heuristic = true
@@ -32,19 +33,17 @@ style = "bright-purple bold"
 style = "bright-green bold"
 
 [hostname]
+format = "[$ssh_symbol$hostname ]($style)"
 ssh_only = false
-style = "bright-green bold"
-
-[nix_shell]
-format = "[$symbol$name]($style) "
-style = "bright-purple bold"
-symbol = ""
+style = "bright-blue bold"
 
 [nodejs]
 format = "via [󰎙 $version](bold green) "
 
 [username]
+format = "[$user@]($style)"
 disabled = false
 show_always = true
 style_root = "bright-red bold"
 style_user = "bright-white bold"
+
