@@ -1,6 +1,8 @@
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
 
+#test -z "$TMUX" && (tmux attach || tmux new-session)
+
 xhost +local: > /dev/null 2>&1
 
 zinit light zsh-users/zsh-syntax-highlighting
@@ -48,9 +50,18 @@ fi
 # Aliases
 alias -- 'clr'='clear'
 
-#Fast flatpak
-alias -- 'gwen'='flatpak run org.kde.gwenview'
+alias -- 'docker-purge'='$HOME/.scripts/zsh/docker-purge.zsh'
 
+
+# Docker
+docker-compose() {
+  file=${1:-docker-compose.yml}
+  docker compose -f "$file" up
+}
+alias -- 'dkc'='docker-compose'
+alias -- 'dkp'='docker-purge'
+alias -- 'dks'='docker stats'
+alias -- 'dkx'='docker exec -it'
 
 function ls() {
   if command -v eza >/dev/null 2>&1; then
@@ -91,4 +102,5 @@ export PATH="$PATH:/home/jumpyvi/.local/bin"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
+#eval "$(zellij setup --generate-auto-start zsh)"
+alias neofetch="/home/linuxbrew/.linuxbrew/bin/fastfetch"

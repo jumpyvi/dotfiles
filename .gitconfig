@@ -1,6 +1,6 @@
 [user]
 	email = jumpy634@gmail.com
-	name = Vincent Laperle
+	name = JumpyVi
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
