@@ -1,7 +1,6 @@
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
 
-#test -z "$TMUX" && (tmux attach || tmux new-session)
 
 xhost +local: > /dev/null 2>&1
 
@@ -41,6 +40,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
+
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(starship init zsh)"
@@ -97,10 +97,14 @@ export EDITOR="nvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
 
 #SSH
-#export SSH_ASKPASS=/usr/bin/ksshaskpass
-#export SSH_ASKPASS_REQUIRE=prefer
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 #eval "$(zellij setup --generate-auto-start zsh)"
 alias neofetch="/home/linuxbrew/.linuxbrew/bin/fastfetch"
+
+source <(pkgx --shellcode)
+
+test -z "$TMUX" && (tmux new-session)
