@@ -16,7 +16,8 @@
   "userAgentData": true,
   "whitelist": [
     "cegepdrummond.omnivox.ca",
-    "login.microsoftonline.com"
+    "login.microsoftonline.com",
+    "office.com"
   ],
   "json-guid": "57ea192f-53f4-43be-b82a-5dc0be116b8d",
   "json-forced": false
