@@ -1,6 +1,7 @@
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
-
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/programs}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 xhost +local: > /dev/null 2>&1
 
@@ -103,8 +104,6 @@ export SSH_ASKPASS_REQUIRE=prefer
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 #eval "$(zellij setup --generate-auto-start zsh)"
-alias neofetch="/home/linuxbrew/.linuxbrew/bin/fastfetch"
-
-source <(pkgx --shellcode)
+alias neofetch="fastfetch"
 
 test -z "$TMUX" && (tmux new-session)
