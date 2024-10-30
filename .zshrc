@@ -42,7 +42,6 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
 
-
 if [[ $TERM != "dumb" ]]; then
   eval "$(starship init zsh)"
 #eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/prompt.toml)"
@@ -63,6 +62,8 @@ alias -- 'dkc'='docker-compose'
 alias -- 'dkp'='docker-purge'
 alias -- 'dks'='docker stats'
 alias -- 'dkx'='docker exec -it'
+
+alias -- 'fuckpptx'='libreoffice --headless --invisible --convert-to pdf *.pptx'
 
 function ls() {
   if command -v eza >/dev/null 2>&1; then
@@ -92,7 +93,6 @@ function vi() {
   fi
 }
 
-
 #TOOLS PATH
 export EDITOR="nvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
@@ -105,5 +105,3 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 #eval "$(zellij setup --generate-auto-start zsh)"
 alias neofetch="fastfetch"
-
-test -z "$TMUX" && (tmux new-session)

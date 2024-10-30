@@ -126,17 +126,10 @@
                 "code": 6,
                 "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
                 "analog_threshold": -1
-            },
-            {
-                "type": 2,
-                "code": 12,
-                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
-                "analog_threshold": -1
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "KEY_LEFTCTRL + BackSpace",
-        "name": "Wheel Left",
+        "output_symbol": "Alt_L + Left",
         "mapping_type": "key_macro"
     },
     {
@@ -146,17 +139,10 @@
                 "code": 6,
                 "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
                 "analog_threshold": 1
-            },
-            {
-                "type": 2,
-                "code": 12,
-                "origin_hash": "d61ee257b2b3d3f1688546c9012ac621",
-                "analog_threshold": 1
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "XF86AudioNext",
-        "name": "Wheel Right",
+        "output_symbol": "Alt_L + Right",
         "mapping_type": "key_macro"
     }
 ]
