@@ -15,6 +15,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
+fpath+=~/.zfunc
 autoload -Uz compinit
 compinit
 zinit cdreplay -q
@@ -96,12 +97,16 @@ function vi() {
 #TOOLS PATH
 export EDITOR="nvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
+export PATH="$PATH:/home/jumpyvi/.cargo/bin"
+export PATH="/home/jumpyvi/.local/programs/pixi/bin:$PATH"
 
 #SSH
-export SSH_ASKPASS=/usr/bin/ksshaskpass
-export SSH_ASKPASS_REQUIRE=prefer
+#export SSH_ASKPASS=/usr/bin/ksshaskpass
+#export SSH_ASKPASS_REQUIRE=prefer
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 #eval "$(zellij setup --generate-auto-start zsh)"
 alias neofetch="fastfetch"
+eval "$(pixi completion --shell zsh)"
+eval $(thefuck --alias)
