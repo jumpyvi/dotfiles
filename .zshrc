@@ -1,7 +1,5 @@
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/programs}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+source /home/linuxbrew/.linuxbrew/opt/zinit/zinit.zsh
 
 xhost +local: > /dev/null 2>&1
 
@@ -99,6 +97,7 @@ export EDITOR="nvim";
 export PATH="$PATH:/home/jumpyvi/.local/bin"
 export PATH="$PATH:/home/jumpyvi/.cargo/bin"
 export PATH="/home/jumpyvi/.local/programs/pixi/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/opt/dotnet@8/bin:$PATH"
 
 #SSH
 #export SSH_ASKPASS=/usr/bin/ksshaskpass
@@ -106,7 +105,6 @@ export PATH="/home/jumpyvi/.local/programs/pixi/bin:$PATH"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-#eval "$(zellij setup --generate-auto-start zsh)"
 alias neofetch="fastfetch"
 eval "$(pixi completion --shell zsh)"
 eval $(thefuck --alias)
