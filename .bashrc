@@ -13,10 +13,10 @@ export PATH
 
 # CLI
 alias cd='z'
+alias docker-laser='docker rm $(docker ps -aq) --force'
 
 # Dev tools
 alias flutter='fvm flutter'
-export PATH="/home/linuxbrew/.linuxbrew/opt/dotnet@8/bin:$PATH"
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -29,5 +29,6 @@ fi
 unset rc
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
+#eval "$(oh-my-posh init bash --config ~/.posh.omp.json)"
 eval "$(zoxide init bash)"
-source ~/.local/share/blesh/ble.sh
+source ~/.local/programs/blesh/ble.sh

@@ -1,5 +1,6 @@
 add_newline = false
 format = "$username$hostname$git_branch$git_commit$git_state$git_status$directory \n $character"
+command_timeout = 900
 
 [character]
 error_symbol = "[\\$](bright-red bold)"
@@ -9,11 +10,6 @@ success_symbol = "[>_](bright-green bold)"
 read_only = " 󰉐"
 truncation_length = 0
 format = '[$path]($style)'
-
-[dotnet]
-heuristic = true
-style = "green"
-symbol = ""
 
 [git_branch]
 format = "[$symbol$branch]($style) "
