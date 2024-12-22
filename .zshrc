@@ -1,32 +1,31 @@
-# ZSH Settings
-autoload -U select-word-style
-select-word-style bash
+for config_file in ~/.zsh/*.zsh; do
+    source "$config_file"
+done
 
-# -------- Plugins -------- #
-source /home/jumpyvi/.local/programs/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/jumpyvi/.local/programs/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /home/jumpyvi/.local/programs/zsh-plugins/zsh-syntax/zsh-syntax-highlighting.plugin.zsh
-source /home/jumpyvi/.local/programs/zsh-plugins/docker-zsh-completion/docker-zsh-completion.plugin.zsh
-source /home/jumpyvi/.local/programs/zsh-plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-eval "$(starship init zsh)"
+xhost +local: > /dev/null 2>&1
+
+autoload -Uz compinit
+compinit -D
 
 
-# -------- Autocompletion Keybinds -------- #
-bindkey              '^I' menu-select
-bindkey "$terminfo[kcbt]" menu-select
-bindkey -M menuselect              '^I'         menu-complete
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
-bindkey '^[[A' history-substring-search-up # or '\eOA'
-bindkey '^[[B' history-substring-search-down # or '\eOB'
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( 5 )) )'
+##Files
+#History
+HISTFILE=$HOME/.zsh/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups
 
+function clean-paste() {
+    local content
+    # Read the pasted content
+    content=$(</dev/stdin)
+    # Remove trailing newlines
+    content=${content%$'\n'}
+    # Insert the cleaned-up content into the line editor
+    print -rn -- "$content"
+}
 
-# -------- Ctrl -------- #
-# Delete previous word
-bindkey '^H' backward-kill-word
-bindkey '^[[1;5D' backward-kill-word
-# Ctrl+Left: Move backward by word
-bindkey '^[[1;5D' backward-word
-# Ctrl+Right: Move forward by word
-bindkey '^[[1;5C' forward-word 
+# Bind Shift+Insert or Ctrl+Shift+V to the custom paste widget
+zle -N clean-paste
+bindkey '^[[27;5;86~' clean-paste       # Common sequence for Shift+Insert
+
