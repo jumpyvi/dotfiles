@@ -29,4 +29,5 @@ function clean-paste() {
 zle -N clean-paste
 bindkey '^[[27;5;86~' clean-paste       # Common sequence for Shift+Insert
 
-# brand new
+# brand new2
+# testing
