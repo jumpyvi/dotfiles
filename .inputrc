@@ -1,6 +1,0 @@
-"\C-h": backward-kill-word
-"\C-\b": backward-kill-word
-
-set keyseq-timeout 50
-"\e\e": "\C-asudo \C-e"
-

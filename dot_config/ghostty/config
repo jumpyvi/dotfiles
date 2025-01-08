@@ -1,0 +1,5 @@
+command = /home/linuxbrew/.linuxbrew/bin/zsh
+
+shell-integration-features = sudo
+theme = GitHub Dark
+font-family = BlexMono Nerd Font Mono
