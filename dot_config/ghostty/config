@@ -21,3 +21,4 @@ clipboard-paste-bracketed-safe = true
 keybind = ctrl+q=close_surface
 keybind = ctrl+t=new_tab
 keybind = ctrl+enter=new_split:auto
+keybind = ctrl+d=text:docker ps\n
