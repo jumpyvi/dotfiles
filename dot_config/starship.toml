@@ -41,5 +41,4 @@ format = "[$user@]($style)"
 disabled = false
 show_always = true
 style_root = "bright-red bold"
-style_user = "bright-white bold"
-
+style_user = "pink bold"
