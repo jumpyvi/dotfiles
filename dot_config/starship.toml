@@ -1,44 +1,44 @@
 add_newline = false
-format = "$username$hostname$git_branch$git_commit$git_state$git_status$directory \n $character"
+format = "$username$hostname$directory$git_branch$git_commit$git_state$git_status \n $character"
 command_timeout = 900
 
 [character]
 error_symbol = "[\\$](bright-red bold)"
-success_symbol = "[>_](bright-green bold)"
+success_symbol = "[>_](#2EC27E bold)"
 
 [directory]
 read_only = " 󰉐"
 truncation_length = 0
-format = '[$path]($style)'
+format = '($style)[$path]($style) '
+style = "#B5835A bold"
 
 [git_branch]
-format = "[$symbol$branch]($style) "
+format = "[git:\\($branch\\)]($style) "
 only_attached = true
 style = "bright-yellow bold"
-symbol = " "
-
-[git_commit]
-format = "[$hash]($style) "
-only_detached = true
-style = "bright-yellow bold"
+truncation_length = 17
 
 [git_state]
 style = "bright-purple bold"
 
 [git_status]
-style = "bright-green bold"
+style = "#5E5C64 bold"
+staged = "[+](#FFA348)"
+untracked = "[?](#A51D2D)"
+modified = "[*](#2EC27E)"
+stashed = "[s](#E66100)"
 
 [hostname]
 format = "[$ssh_symbol$hostname ]($style)"
 ssh_only = false
-style = "bright-blue bold"
+style = "#1C71D8 bold"
 
 [nodejs]
-format = "via [󰎙 $version](bold green) "
+format = "node:[ $version](bold green) "
 
 [username]
-format = "[$user@]($style)"
+format = "[$user]($style)[@](#99C1F1)"
 disabled = false
 show_always = true
 style_root = "bright-red bold"
-style_user = "pink bold"
+style_user = "#DEDDDA bold"
