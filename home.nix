@@ -17,36 +17,37 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # Fish
-    pkgs.fish
-    pkgs.fishPlugins.forgit
-    pkgs.fishPlugins.puffer
-    pkgs.fishPlugins.bass
-    pkgs.fishPlugins.sponge
-    pkgs.fishPlugins.autopair
+    fish
+    fishPlugins.forgit
+    fishPlugins.puffer
+    fishPlugins.bass
+    fishPlugins.sponge
+    fishPlugins.autopair
 
     # CLI utilities
-    pkgs.neovim
-    pkgs.zoxide
-    pkgs.fastfetch
-    pkgs.fzf
-    pkgs.starship
-    pkgs.trash-cli
+    neovim
+    zoxide
+    fastfetch
+    fzf
+    starship
+    trash-cli
 
     # Dev tools
-    pkgs.devcontainer
-    pkgs.yarn
-    pkgs.nodejs_23
-    pkgs.dotnet-sdk
-    pkgs.dotnet-ef
+    devcontainer
+    yarn
+    nodejs_23
+    dotnet-sdk
+    dotnet-ef
 
-    # Fonts & icons
-    pkgs.nerd-fonts.blex-mono
-    pkgs.inter
-    pkgs.nerd-fonts.ubuntu-sans
-    pkgs.nerd-fonts.jetbrains-mono
-    pkgs.morewaita-icon-theme
+    # Theming
+    nerd-fonts.blex-mono
+    inter
+    nerd-fonts.ubuntu-sans
+    nerd-fonts.jetbrains-mono
+    morewaita-icon-theme
+    adw-gtk3
   ];
 
   home.file = {
@@ -90,4 +91,10 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Auto-updates
+  services.home-manager.autoUpgrade.enable = true;
+  services.home-manager.autoUpgrade.frequency = "daily";
 }
+
+
