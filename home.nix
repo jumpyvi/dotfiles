@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
+  nixGL.packages = import <nixgl> { inherit pkgs; };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jumpyvi";
@@ -15,16 +16,23 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
+    size = 22;
+};
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # Fish
-    fish
-    fishPlugins.forgit
-    fishPlugins.puffer
-    fishPlugins.bass
-    fishPlugins.sponge
-    fishPlugins.autopair
+
+    (config.lib.nixGL.wrap chromium)
+
+    #ZSH
+    zsh
+    cod
+    eza
 
     # CLI utilities
     neovim
@@ -33,6 +41,9 @@
     fzf
     starship
     trash-cli
+    ripgrep
+    fd
+    unzip
 
     # Dev tools
     devcontainer
@@ -40,6 +51,8 @@
     nodejs_23
     dotnet-sdk
     dotnet-ef
+    pipx
+    jetbrains-toolbox
 
     # Theming
     nerd-fonts.blex-mono
@@ -48,7 +61,9 @@
     nerd-fonts.jetbrains-mono
     morewaita-icon-theme
     adw-gtk3
+    apple-cursor
   ];
+
 
   home.file = {
     ".config/fish" = {
@@ -82,7 +97,10 @@
       source = config.lib.file.mkOutOfStoreSymlink dotfiles/logseq;
       recursive = true;
     };
+
+    
   };
+
 
 
  home.sessionVariables = {

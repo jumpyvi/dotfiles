@@ -33,7 +33,21 @@ require('lazy').setup({
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
   },
   'nvim-lualine/lualine.nvim',
-  'nvim-tree/nvim-tree.lua',
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+},
+{
+        "Mofiqul/adwaita.nvim",
+        lazy = false,
+        priority = 1000,
+    },
+
 })
 
 -- Set options
@@ -44,4 +58,11 @@ require("mason").setup()
 require("devcontainer").setup{}
 require("bufferline").setup{}
 require("config.lualine")
-require("config.nvim-tree")
+require("config.neo-tree")
+
+
+--- Theme
+vim.g.adwaita_darker = true -- for darker version
+vim.g.adwaita_disable_cursorline = true -- to disable cursorline
+vim.g.adwaita_transparent = true -- makes the background transparent
+vim.cmd([[colorscheme adwaita]])
