@@ -1,0 +1,20 @@
+brew_packages:
+# Shell utilities
+  - fastfetch
+  - neovim
+  - fzf
+  - fish
+  - eza
+  - zoxide
+  - starship
+  - trash-cli
+  - ripgrep
+  - fd
+  - unzip
+# Dev tools
+  - devcontainer
+  - yarn
+  - nodejs
+  - pipx
+  - dotnet@8
+
