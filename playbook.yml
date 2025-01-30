@@ -3,7 +3,6 @@
   hosts: 127.0.0.1
   connection: local
   vars_files:
-    - ./brew_packages.yml
     - ./dotfiles_path.yml
   tasks:
 
@@ -14,16 +13,16 @@
     - name: Install community.general collection if not present
       ansible.builtin.shell: "ansible-galaxy collection install community.general ansible.posix"
       when: "'community.general' not in collection_list.stdout"
-    
-    - name: Upgrade the rpm-ostree image
-      ansible.posix.rpm_ostree_upgrade:
 
-    - name: Install brew packages
-      community.general.homebrew:
-        name: "{{ brew_packages }}"
-        state: present
-        update_homebrew: true
-        upgrade_all: true
+    - name: Upgrade all packages
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+
+    - name: Upgrade all flatpaks
+      ansible.builtin.command: flatpak update --noninteractive
+      register: flatpak_update_output
+      changed_when: "'app/' in flatpak_update_output.stdout"
     
     # - name: Update distrobox containers
     #   ansible.builtin.shell: "distrobox-upgrade --all"
@@ -31,6 +30,8 @@
     - name: Create symlinks
       ansible.builtin.file:
         src: "{{ item.src }}"
-        dest: "{{ item.dest | expanduser }}"
+        dest: "$HOME/{{ item.dest }}"
         state: link
+      become: true
+      become_user: jumpyvi
       loop: "{{ links }}"

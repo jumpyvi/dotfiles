@@ -3,7 +3,7 @@
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "coc.nvim": { "branch": "release", "commit": "4cc169449fa6fd69e5f5f0a67bda8fd74837f924" },
   "formatter.nvim": { "branch": "master", "commit": "eb89a1f3e079f1b9680bc7293b75fffccb5e1598" },
-  "lazy.nvim": { "branch": "main", "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a" },
+  "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
   "lualine.nvim": { "branch": "master", "commit": "2a5bae925481f999263d6f5ed8361baef8df4f83" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "mini.nvim": { "branch": "main", "commit": "ecde5ffd9adfd590d5c2d5d35a7f0152def894fc" },

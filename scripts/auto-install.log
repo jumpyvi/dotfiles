@@ -1,0 +1,19 @@
+
+PLAY [Dotfile automation] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [127.0.0.1]
+
+TASK [Check if community.general collection is installed] **********************
+changed: [127.0.0.1]
+
+TASK [Install community.general collection if not present] *********************
+skipping: [127.0.0.1]
+
+TASK [Upgrade all packages] ****************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: RuntimeError: Error checking if metalink "https://mirrors.fedoraproject.org/metalink?repo=updates-released-f41&arch=x86_64" is in sync for repository "updates"
+fatal: [127.0.0.1]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"/root/.ansible/tmp/ansible-tmp-1738264216.67346-2871-95784914112837/AnsiballZ_dnf5.py\", line 107, in <module>\n    _ansiballz_main()\n    ~~~~~~~~~~~~~~~^^\n  File \"/root/.ansible/tmp/ansible-tmp-1738264216.67346-2871-95784914112837/AnsiballZ_dnf5.py\", line 99, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/.ansible/tmp/ansible-tmp-1738264216.67346-2871-95784914112837/AnsiballZ_dnf5.py\", line 47, in invoke_module\n    runpy.run_module(mod_name='ansible.modules.dnf5', init_globals=dict(_module_fqn='ansible.modules.dnf5', _modlib_path=modlib_path),\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                     run_name='__main__', alter_sys=True)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 226, in run_module\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/ansible_ansible.legacy.dnf5_payload_hii26g6r/ansible_ansible.legacy.dnf5_payload.zip/ansible/modules/dnf5.py\", line 768, in <module>\n  File \"/tmp/ansible_ansible.legacy.dnf5_payload_hii26g6r/ansible_ansible.legacy.dnf5_payload.zip/ansible/modules/dnf5.py\", line 764, in main\n  File \"/tmp/ansible_ansible.legacy.dnf5_payload_hii26g6r/ansible_ansible.legacy.dnf5_payload.zip/ansible/modules/dnf5.py\", line 602, in run\n  File \"/usr/lib64/python3.13/site-packages/libdnf5/repo.py\", line 2415, in load_repos\n    return _repo.RepoSackWeakPtr_load_repos(self, *args)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: Error checking if metalink \"https://mirrors.fedoraproject.org/metalink?repo=updates-released-f41&arch=x86_64\" is in sync for repository \"updates\"\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+
+PLAY RECAP *********************************************************************
+127.0.0.1                  : ok=2    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+
