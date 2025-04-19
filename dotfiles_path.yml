@@ -1,0 +1,13 @@
+links:
+  - src: "{{ playbook_dir }}/nvim"
+    dest: ".config/nvim"
+  - src: "{{ playbook_dir }}/ghostty"
+    dest: ".config/ghostty"
+  - src: "{{ playbook_dir }}/git/dot_gitconfig"
+    dest: ".config/git/config"
+  - src: "{{ playbook_dir }}/fish"
+    dest: ".config/fish"
+  - src: "{{ playbook_dir }}/input-remapper-2"
+    dest: ".config/input-remapper-2"
+  - src: "{{ playbook_dir }}/starship/starship.toml"
+    dest: ".config/starship.toml"

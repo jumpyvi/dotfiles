@@ -1,0 +1,43 @@
+- name: Dotfile automation
+  gather_facts: true
+  hosts: 127.0.0.1
+  connection: local
+  vars_files:
+    - ./dotfiles_path.yml
+
+  tasks:
+
+    - name: Check if community.general collection is installed
+      ansible.builtin.command: ansible-galaxy collection list
+      register: collection_list
+
+    - name: Install community.general collection if not present
+      ansible.builtin.shell: "ansible-galaxy collection install community.general ansible.posix"
+      when: "'community.general' not in collection_list.stdout"
+
+    - name: Add Flathub remote (user-wide)
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        method: user
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+
+    - name: Ensure destination directory exists
+      ansible.builtin.file:
+        path: "$HOME/{{ item.dest | dirname }}"
+        state: directory
+        mode: '0755'
+      become: true
+      become_user: jumpyvi
+      loop: "{{ links }}"
+      loop_control:
+        label: "{{ item.dest | dirname }}"
+
+    - name: Create symlinks
+      ansible.builtin.file:
+        src: "{{ item.src }}"
+        dest: "$HOME/{{ item.dest }}"
+        state: link
+      become: true
+      become_user: jumpyvi
+      loop: "{{ links }}"

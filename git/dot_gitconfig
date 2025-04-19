@@ -1,0 +1,10 @@
+[user]
+	email = 62212220+jumpyvi@users.noreply.github.com
+	name = JumpyVi
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	editor = code --wait
