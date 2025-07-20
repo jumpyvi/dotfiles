@@ -1,0 +1,4 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export DOTNET_CLI_HOME="$XDG_CONFIG_HOME"/dotnet

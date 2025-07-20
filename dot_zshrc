@@ -1,0 +1,9 @@
+# Created by newuser for 5.9
+autoload -U compinit; compinit
+ZSH_CONFIG="$HOME"/.config/zsh
+
+source $ZSH_CONFIG/history-conf.zsh
+source $ZSH_CONFIG/paths.zsh
+source $ZSH_CONFIG/startup.zsh
+source $ZSH_CONFIG/keybinds.zsh
+source $ZSH_CONFIG/plugins.zsh

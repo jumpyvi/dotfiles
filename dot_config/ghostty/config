@@ -1,5 +1,5 @@
 # --- Shell --- #
-command = /home/linuxbrew/.linuxbrew/bin/fish
+command = /home/linuxbrew/.linuxbrew/bin/zsh
 shell-integration-features = sudo,cursor,title
 shell-integration = detect
 
